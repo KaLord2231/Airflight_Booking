@@ -1,0 +1,25 @@
+@startuml 
+title Payment
+|User|
+start
+:Click Payment button (1);
+
+|System|
+:Display 'Payment method' screen (2);
+
+|User|
+:Choose payment method (3);
+:Click 'Pay' button (4);
+|System|
+repeat 
+:Display Face Id screen or Input wallet password (5);
+|User|
+:Input Face Id or wallet password (6);
+
+|System|
+backward:Error message(7.1);
+repeat while (Valid information? (7)) is (no)
+:Call payment function(7.2);
+:Show payment successfully message(8);
+stop
+@enduml

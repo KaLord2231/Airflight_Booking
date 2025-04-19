@@ -1,0 +1,28 @@
+@startuml
+title Chatting
+
+|Customer|
+start
+:Write message (1);
+:Click send button (2);
+
+|System|
+:Display "Sent" status (3);
+:Display message in chat box (4);
+:Send message notification to receiver (5);
+
+|Admin/Employee|
+:Receive notification (6);
+:View message in chat box (7);
+:Write reply message (8);
+:Click send button (9);
+
+|System|
+:Display "Sent" status for reply (10);
+:Display reply message in chat box (11);
+
+|Customer|
+:View reply message (12);
+
+stop
+@enduml

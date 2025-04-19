@@ -1,0 +1,35 @@
+@startuml 
+title Restore Account
+|User|
+start
+:Click Restore account button (1);
+
+|System|
+:Display 'Restore account' screen (2);
+
+|User|
+:Enter email(3);
+:Click Send email button (4);
+
+|System|
+:Send OTP code (5);
+:Display OTP code screen (6);
+|User|
+repeat :Enter OTP code(7);
+|System|
+backward :Show error message(8.2);
+repeat while (Valid OTP code?(8)) is (no);
+:Show update password screen(8.1);
+|User|
+repeat :Enter new password & confirm password(9);
+|System|
+backward :Show error warning(10.2);
+repeat while (Matched password?(10)) is (no);
+
+|User|
+:Click Update password button (10.1);
+|System|
+:Show update successfully message(11);
+
+stop
+@enduml

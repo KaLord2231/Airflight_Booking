@@ -1,4 +1,4 @@
-@startuml Register Activity
+@startuml 
 title Create Airline
 |User|
 start
