@@ -1,11 +1,11 @@
 @startuml
-title Delete Airline
+title Delete Review
 |User|
 start
-:Click delete Airline object(1);
+:Click delete Review object(1);
 |System|
 repeat :Read data(2);
-:Display Airline detail screen(3);
+:Display Review detail screen(3);
 |User|
 :Click delete button (4);
 
@@ -14,7 +14,7 @@ repeat :Read data(2);
 :Display delete confirmation screen(5);
 
 |User|
-:Confirm deletions of Airline(6);
+:Confirm deletions of Review(6);
 |System|
 repeat while (Yes/ No?) is (no)
 

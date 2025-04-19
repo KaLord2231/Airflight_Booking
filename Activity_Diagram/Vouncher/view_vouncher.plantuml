@@ -1,0 +1,16 @@
+@startuml Register Activity
+title Create Airline
+|User|
+start
+:Enter voucher screen(1);
+
+|System|
+:Display voucher list screen (2);
+
+|User|
+:Select voucher want to view(3);
+
+|System|
+:Show detail information(4);
+stop
+@enduml

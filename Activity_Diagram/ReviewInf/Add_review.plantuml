@@ -1,0 +1,25 @@
+@startuml Register Activity
+title Create Airline
+|User|
+start
+:Click Create Review button (1);
+
+|System|
+:Display 'Create Review' screen (2);
+
+|User|
+:Enter Review information(3);
+:Click Create button (4);
+
+|System|
+
+if(Valid content?(5))then (yes)
+:Save Review(5.1);
+:Show create successfully message(6);
+:Show Review on "Review manager" screen(7);
+stop
+else (no)
+:Show error message(5.2);
+|System|
+stop
+@enduml

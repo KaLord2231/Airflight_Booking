@@ -2,10 +2,10 @@
 title Delete Airline
 |User|
 start
-:Click delete Airline object(1);
+:Click delete Airplane object(1);
 |System|
 repeat :Read data(2);
-:Display Airline detail screen(3);
+:Display Airplane detail screen(3);
 |User|
 :Click delete button (4);
 
@@ -14,7 +14,7 @@ repeat :Read data(2);
 :Display delete confirmation screen(5);
 
 |User|
-:Confirm deletions of Airline(6);
+:Confirm deletions of Airplane(6);
 |System|
 repeat while (Yes/ No?) is (no)
 

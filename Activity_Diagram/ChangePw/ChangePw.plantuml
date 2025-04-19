@@ -1,0 +1,36 @@
+@startuml Register Activity
+title Change password
+|User|
+start
+:Enter user profile screen (1);
+
+|System|
+:Display user profile screen (2);
+
+|User|
+:Click change password button (3);
+
+|System|
+repeat
+:Display 'Change password' screen (4);
+
+|User|
+:Enter current password(5);
+:Enter new password(6);
+repeat:Enter confirm password(7);
+
+|System|
+repeat while(New password == confirm password?(8)) is (no) 
+-> yes;
+
+|User|
+:Click 'change password' button (8);
+
+|System|
+
+repeat while (Correct current password?) is (no)
+-> yes;
+:Save new password(9.1);
+:Show change password successfully message(10);
+stop
+@enduml

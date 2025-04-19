@@ -1,0 +1,14 @@
+@startuml Register Activity
+title View report
+|User|
+start
+:Click view report button (1);
+|System|
+:Display report management screen(2);
+|User|
+:Select flight report or revenue report(3);
+|System|
+:Query all report \ninformation of current user(4); 
+:Display report information (5);
+stop
+@enduml

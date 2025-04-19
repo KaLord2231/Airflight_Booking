@@ -1,0 +1,12 @@
+@startuml Register Activity
+title View Flight
+|User|
+start
+:Click Flight management button (1);
+
+|System|
+:Query all flight \ninformation of current user(2); 
+:Display list flight (3);
+
+stop
+@enduml

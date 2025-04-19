@@ -1,0 +1,29 @@
+@startuml Register Activity
+title Create booking
+|User|
+start
+:Enter booking screen(1);
+
+|System|
+:Display booking screen(2);
+
+|User|
+:Select flight (3);
+
+|System|
+:Display detail flight screen (4);
+
+|User|
+:Enter booking information(5);
+
+|System|
+
+if(Valid content?(5))then (yes)
+:Save booking(5.1);
+:Show create successfully message(6);
+stop
+else (no)
+:Show error message(5.2);
+|System|
+stop
+@enduml
