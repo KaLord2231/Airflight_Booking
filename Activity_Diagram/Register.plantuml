@@ -1,0 +1,21 @@
+@startuml Register Activity
+title Register 
+|User|
+start
+:Click register button (1);
+
+|System|
+:Display register screen (2);
+
+|User|
+repeat :Fill information(3);
+:Click sign up button (4);
+
+|System|
+backward :Error message(5.1);
+repeat while (Confirm information(5))
+:Displaay login screen(5.2);
+
+|System|
+stop
+@enduml

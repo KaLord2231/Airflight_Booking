@@ -1,0 +1,16 @@
+@startuml
+title Search Airline
+|User|
+start
+:Import airline data (keyword) (1);
+:Click search button (2);
+
+|System|
+:Search airline data by Id(3);
+if(Data was founded?(4))then (yes)
+:Show Airline list screen(4.1);
+stop
+else (no)
+:Show Airline list screen with no data(4.2);
+stop
+@enduml
