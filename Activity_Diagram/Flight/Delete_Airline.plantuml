@@ -1,5 +1,5 @@
 @startuml
-title Delete Airline
+title Delete flight
 |User|
 start
 :Click delete Airline object(1);

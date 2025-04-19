@@ -1,0 +1,23 @@
+@startuml Register Activity
+title Search flight
+|User|
+start
+:Enter flight information screen (1);
+
+|System|
+:Display flight list (2);
+
+|User|
+:Enter flight information(3);
+:Click Search button (4);
+
+|System|
+
+if(Exsist flight?(5))then (yes)
+:Show suitable flight(5.1);
+stop
+else (no)
+:Show not found message(5.2);
+|System|
+stop
+@enduml

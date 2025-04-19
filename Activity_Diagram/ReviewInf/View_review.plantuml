@@ -1,0 +1,16 @@
+@startuml Register Activity
+title View review
+|User|
+start
+:Enter location information screen (1);
+
+|System|
+:Display 'Location lists' screen (2);
+
+|User|
+:Select location(3);
+
+|System|
+:Display location review screen(4);
+stop
+@enduml

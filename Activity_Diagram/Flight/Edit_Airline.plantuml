@@ -1,0 +1,25 @@
+@startuml Register Activity
+title Edit Flight
+|User|
+start
+:Click update Flight (1);
+
+|System|
+:Display Flight detail screen (2);
+
+|User|
+:Click Edit button (3);
+
+|System|
+
+:Display 'Edit Flight' Page(4);
+:User update Flight content(5);
+if(Valid content?(6))then (yes)
+:Save update Flight(6.1);
+:Show edit successfully message(7);
+stop
+else (no)
+:Show error message(6.2);
+|System|
+stop
+@enduml
