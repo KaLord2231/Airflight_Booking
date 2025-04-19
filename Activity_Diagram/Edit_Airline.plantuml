@@ -1,0 +1,25 @@
+@startuml Register Activity
+title Edit Airline
+|User|
+start
+:Click update Airline (1);
+
+|System|
+:Display Airline detail screen (2);
+
+|User|
+:Click Edit button (3);
+
+|System|
+
+:Display 'Edit Airline' Page(4);
+:User update Airline content(5);
+if(Valid content?(6))then (yes)
+:Save update Airline(6.1);
+:Show edit successfully message(7);
+stop
+else (no)
+:Show error message(6.2);
+|System|
+stop
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+title Login
+|User|
+start
+repeat:Enter username; password(1);
+:Click login button (2);
+
+|System|
+backward :Error message(3.1);
+repeat while ( Confirm information(3))
+:Displaay dashboard screen(3.2);
+
+|System|
+stop
+@enduml

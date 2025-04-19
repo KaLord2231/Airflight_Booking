@@ -1,0 +1,23 @@
+@startuml Register Activity
+title Delete Airline
+|User|
+start
+repeat :Select delete Airline (1);
+
+|System|
+:Display Airline detail screen (2);
+
+|User|
+:Click Delete button (3);
+
+|System|
+:Display delete confirmation screen(4);
+|User|
+:Confirm deletions of Airline(5);
+|System|
+
+stop
+
+|System|
+stop
+@enduml

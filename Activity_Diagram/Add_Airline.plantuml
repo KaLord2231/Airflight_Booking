@@ -1,0 +1,25 @@
+@startuml Register Activity
+title Create Airline
+|User|
+start
+:Click Create Airline button (1);
+
+|System|
+:Display 'Create Airline' screen (2);
+
+|User|
+:Enter Airline information(3);
+:Click Create button (4);
+
+|System|
+
+if(Valid content?(5))then (yes)
+:Save Airline(5.1);
+:Show create successfully message(6);
+:Show Airline on "Airline manager" screen(7);
+stop
+else (no)
+:Show error message(5.2);
+|System|
+stop
+@enduml
