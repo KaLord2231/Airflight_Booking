@@ -1,0 +1,68 @@
+@startuml
+left to right direction
+Actor Admin as Ad
+Actor Customer as Cus 
+Actor Employee as Em
+' usecase (Login) as Lg 
+' usecase (Manage flight) as MF
+' usecase (Manage booking) as MB
+' usecase (Manage account) as MA
+' usecase (Chatting) as CHT
+' usecase (Booking) as BK
+'usecase (Manage airline) as MAi
+' usecase (Manage review) as MR
+' usecase (Manage user) as MU 
+' usecase (Manage employee) as ME
+' usecase (Manage voucher) as MV
+
+' Cus--Lg
+' Cus--MF
+' Cus--MB
+' Cus--MA
+' Cus--CHT 
+' Cus--BK
+
+' Ad -up-Lg
+'Ad-down-MAi 
+' Ad-up-MF 
+' Ad-up-MB 
+' Ad-up-MR 
+' Ad-up-MA 
+' Ad-up-MU 
+' Ad-up-ME
+' Ad-up-CHT
+' Ad-up-MV 
+
+'Em-down-MAi 
+' Em-up-MB 
+' Em-up-MR  
+
+/'Sub'/
+' MAi<..(Add airline): <<extend>>
+' MAi<..(Delete airline): <<extend>>
+' MAi<..(Edit airline): <<extend>>
+' Cus-up-(Search airline)
+' (Delete airline)..>(Search airline):<<include>>
+' (Edit airline)..>(Search airline):<<include>>
+
+' MF<...(Add flight): <<extend>>
+' MF<...(Delete flight): <<extend>>
+' MF<...(Edit flight): <<extend>>
+' Cus--(Search flight)
+' (Delete flight)..>(Search flight):<<include>>
+' (Edit flight)..>(Search flight):<<include>>
+
+' MB<...(Add ticket): <<extend>>
+' MB<...(Delete ticket): <<extend>>
+' MB<...(Edit ticket): <<extend>>
+' Cus--(Search ticket)
+' (Delete ticket)..>(Search ticket):<<include>>
+' (Edit ticket)..>(Search ticket):<<include>>
+
+' MR<...(Add review): <<extend>>
+' MR<...(Delete review): <<extend>>
+' MR<...(Edit review): <<extend>>
+' Cus--(Search review)
+' Cus--(Edit review)
+' Cus--(Add review)
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title Delete Flight 
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to delete Flight (id)
+activate ctrl
+ctrl->u: Do you want to delete this Flight? (yes/no)
+alt yes
+ctrl-> sv:Delete(Flight.id)
+activate sv
+sv->db: Query to delete Flight (id)
+activate db
+db->sv: return success message
+deactivate db
+sv-->ctrl: listFlight()
+deactivate sv
+ctrl-->u: Show success message
+ctrl-->u: Show(Flightscreen)
+else no
+ctrl-->u: Show(Flightscreen)
+deactivate ctrl
+end
+
+@enduml
