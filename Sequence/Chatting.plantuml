@@ -1,0 +1,44 @@
+@startuml
+title Chatting
+actor Customer as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+actor "Admin/Employee" as admin
+u -> ctrl: Send message (messageContent)
+activate ctrl
+ctrl -> sv: saveMessage(messageContent, userId)
+activate sv
+sv -> db: Insert message into database
+activate db
+db --> sv: Save success
+deactivate db
+sv --> ctrl: Message saved
+deactivate sv
+ctrl --> u: Display "Message sent"
+
+ctrl -> admin: Notify new message
+admin -> ctrl: Request to view message
+ctrl -> sv: getMessages(userId)
+activate sv
+sv -> db: Fetch messages from database
+activate db
+db --> sv: Return message list
+deactivate db
+sv --> ctrl: Return message list
+deactivate sv
+ctrl --> admin: Display messages
+
+admin -> ctrl: Send reply (replyContent)
+
+ctrl -> sv: saveMessage(replyContent, adminId)
+activate sv
+sv -> db: Insert reply into database
+activate db
+db --> sv: Save success
+deactivate db
+sv --> ctrl: Reply saved
+deactivate sv
+ctrl --> admin: Display "Reply sent"
+ctrl --> u: Notify new reply
+@enduml

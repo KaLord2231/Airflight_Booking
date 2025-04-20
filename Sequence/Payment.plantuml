@@ -1,0 +1,32 @@
+@startuml
+title Payment
+
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+participant PaymentGateway as pg
+database Database as db
+
+u -> ctrl: Request to make payment (bookingId, paymentMethod)
+activate ctrl
+ctrl -> ctrl: Validate payment information
+alt Payment information valid
+    ctrl -> sv: processPayment(bookingId, paymentMethod)
+    activate sv
+    sv -> pg: Initiate payment request
+    activate pg
+    pg --> sv: Payment success confirmation
+    deactivate pg
+    sv -> db: Update booking status to 'Paid'
+    activate db
+    db --> sv: Update success
+    deactivate db
+    sv --> ctrl: Payment successful
+    deactivate sv
+    ctrl --> u: Show payment success message
+else Payment information invalid
+    ctrl --> u: Show error message
+end
+deactivate ctrl
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+title Booking Flight
+
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to book flight (flightId, passengerInfo)
+activate ctrl
+ctrl -> ctrl: Validate booking information
+alt Booking information valid
+    ctrl--> u: Show payment screen
+    u -> ctrl: Payment confirmation
+    ctrl -> sv: bookFlight(flightId, passengerInfo)
+    activate sv
+    sv -> db: Insert booking details
+    activate db
+    db --> sv: Return booking confirmation
+    deactivate db
+    sv --> ctrl: Booking successful
+    deactivate sv
+    ctrl --> u: Show booking confirmation
+else Booking information invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+
+@enduml
