@@ -1,0 +1,50 @@
+@startuml
+title Restore Account
+
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+participant EmailService as email
+
+u -> ctrl: Request to restore account (email)
+activate ctrl
+ctrl -> sv: validateEmail(email)
+activate sv
+sv -> db: Check if email exists
+activate db
+alt Email exists
+    db --> sv: Email found
+    deactivate db
+    sv --> ctrl: Email valid
+    deactivate sv
+    ctrl -> email: Send recovery link to email
+    activate email
+    email --> ctrl: Recovery link sent
+    deactivate email
+    ctrl --> u: Display "Recovery link sent to your email"
+    deactivate ctrl
+    u -> ctrl: Submit new password (via recovery link)
+    activate ctrl
+    ctrl -> sv: updatePassword(newPassword, email)
+    activate sv
+    sv -> db: Update password in database
+    activate db
+    db --> sv: Password updated
+    deactivate db
+    sv --> ctrl: Password update successful
+    deactivate sv
+    ctrl --> u: Display "Password updated successfully"
+else Email does not exist
+    activate db
+    db --> sv: Email not found
+    deactivate db
+    activate sv
+    sv --> ctrl: Email invalid
+    deactivate sv
+    ctrl --> u: Display "Email not found"
+    deactivate ctrl
+end
+
+
+@enduml
