@@ -1,0 +1,20 @@
+@startuml
+title Search Airline
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to search airline (keyword)
+activate ctrl
+ctrl->sv: Search(keyword)
+activate sv
+sv->db: Query to show list airline by Keyword
+activate db
+db->sv: Return list airline (id, name, code, country)
+deactivate db
+sv-->ctrl: listAirline(id, name, code, country)
+deactivate sv
+ctrl->u:listAirline.show()
+deactivate ctrl
+@enduml

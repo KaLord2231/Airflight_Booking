@@ -1,0 +1,26 @@
+@startuml
+title Add Airplane 
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Airplane\n (name, type, code, airline_id)
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createAirplane(name, type, code, airline_id)
+    activate sv
+    sv -> db: Persist data to Airplane table\n (name, type, code, airline_id)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Airplane saved data(name, type, code, airline_id)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Airplane)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+title Edit Airplane
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Airplane.show(name, type, code, airline_id)
+activate ctrl
+ctrl -> u: editAirplaneForm.show()
+deactivate ctrl
+u-> ctrl: Airplane.edit(name, type, code, airline_id)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editAirplane(name, type, code, airline_id)
+    activate sv
+    sv -> db: Query to edit Airplane \n(name, type, code, airline_id)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Airplane(name, type, code, airline_id)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Airplane)
+else Input invalid
+    ctrl --> u: Show error message
+  
+end
+
+@enduml
