@@ -1,0 +1,51 @@
+@startuml
+' Login
+
+title Login 
+actor User as u
+
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+ u-> ctrl: Login request
+activate ctrl
+ctrl -> u: Login option (email, password, Google)
+deactivate ctrl
+alt Login with email and password
+ u->ctrl: loginOption*= "email, password"
+ activate ctrl
+ u-> ctrl: credentials*=[email, password]
+ ctrl->sv: id*= loginEmailPassword(credentials*)
+    activate sv
+   sv->sv: validId*= isValid(id*)
+    alt validId*=true
+        sv->db: findAccount(id*)
+        activate db
+        db-->sv: return *id
+        deactivate db
+        sv-->ctrl: loginSuccess*=true
+        ctrl-->u: "Login successful"
+        ctrl-->u: Show(dashboard)
+       
+    else validId*=false
+        sv-->ctrl: loginSuccess*=false
+        deactivate sv
+        ctrl-->u: showMSG("Login failed, Please try again")
+        ctrl-->u: Show(loginScreen)
+        deactivate ctrl
+    end
+else Login with Google 
+    u->ctrl: loginOption*= "Google"
+    activate ctrl
+    ctrl->sv: id*= loginGoogle()
+    activate sv
+    sv->db: login(id*)
+    activate db
+    db-->sv: return *id
+    deactivate db
+    sv-->ctrl: loginSuccess*=true
+    deactivate sv
+    ctrl-->u: Show(dashboard)
+    deactivate ctrl
+end
+@enduml

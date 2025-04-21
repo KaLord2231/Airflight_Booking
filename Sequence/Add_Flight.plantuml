@@ -1,0 +1,26 @@
+@startuml
+title Add Flight
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Flight ()
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createFlight()
+    activate sv
+    sv -> db: Query to insert Flight ()
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Flight()
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Flight)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml
