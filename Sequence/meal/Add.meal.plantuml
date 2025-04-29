@@ -1,0 +1,26 @@
+@startuml
+title Add Meal
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Meal \n(name, price, description)
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createMeal(name, price, description)
+    activate sv
+    sv -> db: Query to insert Meal\n(name, price, description)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Meal(name, price, description)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Meal)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml

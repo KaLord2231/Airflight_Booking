@@ -1,0 +1,20 @@
+@startuml
+title Search Voucher
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to search Voucher (keyword)
+activate ctrl
+ctrl->sv: Search(keyword)
+activate sv
+sv->db: Query to show list Voucher by Keyword
+activate db
+db->sv: Return list Voucher ()
+deactivate db
+sv-->ctrl: listVoucher()
+deactivate sv
+ctrl->u:listVoucher.show()
+deactivate ctrl
+@enduml

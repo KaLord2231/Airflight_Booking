@@ -1,0 +1,31 @@
+@startuml
+title Edit BaggageFee
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: BaggageFee.show(weightThreshold, feePerKg)
+activate ctrl
+ctrl --> u: editBaggageFeeForm.show(weightThreshold, feePerKg)
+deactivate ctrl
+u-> ctrl: BaggageFee.edit(weightThreshold, feePerKg)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editBaggageFee(changing info)
+    activate sv
+    sv -> db: Query to edit BaggageFee (changing info)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: return BaggageFee
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(BaggageFeeScreen)
+else Input invalid
+    ctrl --> u: Show error message
+    ctrl-->u: Show(BaggageFeeScreen)
+end
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+title Search Meal
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to search Meal (keyword)
+activate ctrl
+ctrl->sv: Search(keyword)
+activate sv
+sv->db: Query to show list Meal by Keyword
+activate db
+db->sv: Return list Meal ()
+deactivate db
+sv-->ctrl: listMeal()
+deactivate sv
+ctrl->u:listMeal.show()
+deactivate ctrl
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+title Add Review
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Review \n(famousPlaces, title, description,...)
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createReview(famousPlaces, title, description,...)
+    activate sv
+    sv -> db: Query to insert Review\n(famousPlaces, title, description,...)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Review(famousPlaces, title, description,...)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Review)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml

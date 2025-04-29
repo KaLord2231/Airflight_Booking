@@ -1,0 +1,20 @@
+@startuml
+title Search BaggageFee
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to search BaggageFee (keyword)
+activate ctrl
+ctrl->sv: Search(keyword)
+activate sv
+sv->db: Query to show list BaggageFee by Keyword
+activate db
+db->sv: Return list BaggageFee ()
+deactivate db
+sv-->ctrl: listBaggageFee()
+deactivate sv
+ctrl->u:listBaggageFee.show()
+deactivate ctrl
+@enduml

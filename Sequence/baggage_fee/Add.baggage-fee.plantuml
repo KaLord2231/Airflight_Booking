@@ -1,0 +1,26 @@
+@startuml
+title Add Baggage fee
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Baggage fee \n(weightThreshold, feePerKg)
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createBaggage fee(weightThreshold, feePerKg)
+    activate sv
+    sv -> db: Query to insert Baggage fee \n(weightThreshold, feePerKg)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Baggage fee(weightThreshold, feePerKg)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Baggage fee)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml
