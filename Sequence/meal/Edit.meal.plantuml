@@ -1,0 +1,31 @@
+@startuml
+title Edit Meal
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Meal.show(name, price, description)
+activate ctrl
+ctrl --> u: editMealForm.show(name, price, description)
+deactivate ctrl
+u-> ctrl: Meal.edit(name, price, description)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editMeal(changing info)
+    activate sv
+    sv -> db: Query to edit Meal (changing info)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: return Meal
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(MealScreen)
+else Input invalid
+    ctrl --> u: Show error message
+    ctrl-->u: Show(MealScreen)
+end
+
+@enduml

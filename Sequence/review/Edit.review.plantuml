@@ -1,0 +1,31 @@
+@startuml
+title Edit Review
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Review.show(famousPlaces, title, description,...)
+activate ctrl
+ctrl --> u: editReviewForm.show(famousPlaces, title, description,...)
+deactivate ctrl
+u-> ctrl: Review.edit(famousPlaces, title, description,...)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editReview(changing info)
+    activate sv
+    sv -> db: Query to edit Review (changing info)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: return Review
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(ReviewScreen)
+else Input invalid
+    ctrl --> u: Show error message
+    ctrl-->u: Show(ReviewScreen)
+end
+
+@enduml

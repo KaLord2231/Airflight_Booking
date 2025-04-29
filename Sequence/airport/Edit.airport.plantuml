@@ -1,0 +1,31 @@
+@startuml
+title Edit Airport
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Airport.show(name, city, code)
+activate ctrl
+ctrl --> u: editAirportForm.show(name, city, code)
+deactivate ctrl
+u-> ctrl: Airport.edit(name, city, code)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editAirport(changing info)
+    activate sv
+    sv -> db: Query to edit Airport (changing info)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: return Airport
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(AirportScreen)
+else Input invalid
+    ctrl --> u: Show error message
+    ctrl-->u: Show(AirportScreen)
+end
+
+@enduml

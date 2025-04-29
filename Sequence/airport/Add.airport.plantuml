@@ -1,0 +1,26 @@
+@startuml
+title Add Airport
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Request to add Airport (name, city, code)
+activate ctrl
+ctrl -> ctrl: Validate input data
+alt Input valid
+    ctrl -> sv: createAirport(name, city, code)
+    activate sv
+    sv -> db: Query to insert Airport (name, city, code)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: Airport(name, city, code)
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(Airport)
+else Input invalid
+    ctrl --> u: Show error message
+    deactivate ctrl
+end
+@enduml

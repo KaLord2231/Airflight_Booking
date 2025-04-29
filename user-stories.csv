@@ -1,0 +1,285 @@
+Group,Feature,User Story,As a/an,I want to,So that,Script
+Authentication,Login,Login,Registered user,Log into my account,I can access my personal flight booking information,"1. User navigates to the login page
+2. User enters username/email and password
+3. User clicks the ""Login"" button
+4. System validates credentials
+5. System grants access to the user's account"
+Authentication,Registration,Registration,New user,Create an account,I can book flights and manage my reservations,"1. User navigates to the registration page
+2. User fills in required information
+3. User submits the registration form
+4. System validates the information
+5. System creates a new account and sends confirmation email
+6. User receives confirmation and can now log in"
+Authentication,Password Recovery,Password Recovery,User who forgot password,Recover or reset my password,I can regain access to my account,"1. User clicks ""Forgot Password"" on the login page
+2. User enters their registered email address
+3. System sends password reset link to the email
+4. User clicks on the link and creates a new password
+5. System confirms password change
+6. User can log in with the new password"
+Authentication,Social Login,Social Media Login,User,Log in using my Google/Facebook account,I can access the system without creating a separate account,"1. User clicks on ""Login with Google/Facebook"" button
+2. User is redirected to authorization page
+3. User authorizes the application
+4. System creates or links the social account
+5. User is logged into the system"
+Airline,Add Airline,Add Airline,Administrator,Add a new airline to the system,Users can book flights from this airline,"1. Admin navigates to airline management page
+2. Admin clicks ""Add New Airline"" button
+3. Admin enters airline details
+4. Admin submits the form
+5. System validates and saves the new airline"
+Airline,Edit Airline,Edit Airline,Administrator,Edit an existing airline's information,I can keep airline details accurate and up-to-date,"1. Admin navigates to airline management page
+2. Admin selects the airline to edit
+3. Admin clicks ""Edit"" button
+4. System displays editable airline details
+5. Admin makes necessary changes
+6. Admin clicks ""Save"" button
+7. System validates and updates the airline information"
+Airline,Delete Airline,Delete Airline,Administrator,Remove an airline from the system,Inactive airlines don't appear in search results,"1. Admin navigates to airline management page
+2. Admin selects the airline to delete
+3. Admin clicks ""Delete"" button
+4. System displays confirmation prompt
+5. Admin confirms deletion
+6. System archives the airline"
+Airline,Search Airline,Search Airlines,User,Search for airlines,I can find flights from my preferred airline,"1. User navigates to the airline search section
+2. User enters search criteria
+3. User submits the search
+4. System displays matching airlines
+5. User can select an airline to view more details"
+Aircraft,Add Aircraft,Add Aircraft,Airline manager,Add new aircraft to our fleet,These aircraft can be assigned to flight routes,"1. Manager navigates to aircraft management page
+2. Manager clicks ""Add Aircraft"" button
+3. Manager enters aircraft details
+4. Manager assigns aircraft to an airline
+5. Manager submits the form
+6. System validates and saves the new aircraft"
+Aircraft,Edit Aircraft,Edit Aircraft,Airline manager,Update aircraft information,Fleet details remain accurate,"1. Manager navigates to aircraft management page
+2. Manager selects aircraft to edit
+3. Manager clicks ""Edit"" button
+4. System displays editable information
+5. Manager updates relevant details
+6. Manager clicks ""Save"" button
+7. System validates and updates information"
+Aircraft,Delete Aircraft,Delete Aircraft,Airline manager,Remove aircraft from the fleet,Decommissioned aircraft don't appear in flight planning,"1. Manager navigates to aircraft management page
+2. Manager selects aircraft to delete
+3. Manager clicks ""Delete"" button
+4. System checks for conflicts
+5. System displays confirmation prompt
+6. Manager confirms deletion
+7. System archives aircraft data"
+Aircraft,Search Aircraft,Search Aircraft,Airline manager,Search for aircraft in our fleet,I can view their details and availability,"1. Manager navigates to aircraft search section
+2. Manager enters search criteria
+3. Manager submits the search
+4. System displays matching aircraft
+5. Manager can select an aircraft to view details"
+Flight,Add Flight,Add Flight,Airline manager,Create new flight schedules,Passengers can book seats on these flights,"1. Manager navigates to flight management page
+2. Manager clicks ""Add Flight"" button
+3. Manager enters flight details
+4. Manager sets pricing information
+5. Manager submits the form
+6. System validates and saves the new flight"
+Flight,Edit Flight,Edit Flight,Airline manager,Update flight details,Passengers have accurate schedule and service information,"1. Manager navigates to flight management page
+2. Manager selects flight to edit
+3. Manager clicks ""Edit"" button
+4. System displays editable information
+5. Manager updates details
+6. Manager clicks ""Save"" button
+7. System validates and updates flight information"
+Flight,Delete Flight,Delete Flight,Airline manager,Cancel a flight in the system,Passengers are notified and alternative arrangements can be made,"1. Manager navigates to flight management page
+2. Manager selects flight to delete
+3. Manager clicks ""Cancel Flight"" button
+4. System displays impact assessment
+5. Manager enters reason and confirms
+6. System cancels flight and notifies passengers
+7. System initiates refund process"
+Flight,Search Flight,Search Flights,User,Search for available flights,I can find suitable options for my travel plans,"1. User navigates to flight search page
+2. User enters search criteria
+3. User clicks ""Search"" button
+4. System displays matching flights
+5. User can filter and sort results"
+Airport,Add Airport,Add Airport,Administrator,Add new airports to the system,Flights can be scheduled to and from these locations,"1. Admin navigates to airport management page
+2. Admin clicks ""Add Airport"" button
+3. Admin enters airport details
+4. Admin submits the form
+5. System validates and saves the new airport"
+Airport,Edit Airport,Edit Airport,Administrator,Update airport information,Users see current airport details and facilities,"1. Admin navigates to airport management page
+2. Admin selects airport to edit
+3. Admin clicks ""Edit"" button
+4. System displays editable information
+5. Admin updates details
+6. Admin clicks ""Save"" button
+7. System validates and updates airport information"
+Airport,Delete Airport,Delete Airport,Administrator,Remove an airport from the system,Closed or inactive airports don't appear in flight searches,"1. Admin navigates to airport management page
+2. Admin selects airport to delete
+3. Admin clicks ""Delete"" button
+4. System checks for dependencies
+5. System displays warning if dependencies exist
+6. Admin confirms deletion or cancels
+7. System archives airport"
+Airport,Search Airport,Search Airports,User,Search for airports,I can find flights to or from specific locations,"1. User enters airport name or code in search field
+2. System displays matching results
+3. User can select airport to view details"
+Booking,View Tickets,View Ticket List,User,View all my booked tickets,I can manage my travel plans,"1. User logs into their account
+2. User navigates to ""My Bookings"" section
+3. System displays list of bookings
+4. User can select any booking to view details"
+Booking,Hold Seat,Hold Seat Before Booking,User,Temporarily hold a seat while completing booking,I don't lose my selection during the booking process,"1. User selects flight and seat
+2. System places temporary hold (15 min)
+3. User completes passenger and payment details
+4. If completed in time, seat is confirmed
+5. If time expires, hold is released"
+Booking,Book Ticket,Book Ticket,User,Book a flight ticket,I can travel to my destination,"1. User searches for and selects flight
+2. User selects seat(s) and extras
+3. User enters passenger details
+4. User reviews booking details and price
+5. User proceeds to payment
+6. System confirms booking and sends e-ticket"
+Booking,Cancel Ticket,Cancel Ticket,Ticket holder,Cancel my booked ticket,I can get a refund according to cancellation policy,"1. User navigates to ""My Bookings"" section
+2. User selects booking to cancel
+3. User clicks ""Cancel Booking"" button
+4. System displays terms and refund amount
+5. User confirms cancellation
+6. System processes cancellation and initiates refund"
+Booking,Find Tickets,Find Tickets By User,User,Find all tickets booked by a specific user,I can manage bookings for myself or others,"1. User navigates to ticket search
+2. User enters search criteria
+3. System displays matching tickets
+4. User can select tickets to view details"
+Chatbot,Send Message,Chat with Bot,User,Communicate with a chatbot,I can get quick answers to my questions,"1. User clicks on chatbot icon
+2. Chatbot greeting appears with suggestions
+3. User types question or selects topic
+4. Chatbot responds with relevant information
+5. User can ask follow-up questions"
+Baggage,Add Baggage Fee,Add Baggage Fee,Airline manager,Set up baggage fees,Passengers can purchase additional baggage allowance,"1. Manager navigates to baggage fee management
+2. Manager clicks ""Add Baggage Fee"" button
+3. Manager enters fee details
+4. Manager assigns to routes/flight categories
+5. Manager submits the form
+6. System saves the new fee structure"
+Baggage,Edit Baggage Fee,Edit Baggage Fee,Airline manager,Update baggage fee structures,They reflect current policies and costs,"1. Manager navigates to baggage fee management
+2. Manager selects fee category to edit
+3. Manager clicks ""Edit"" button
+4. System displays editable fee information
+5. Manager updates details
+6. Manager clicks ""Save"" button
+7. System updates fee structure"
+Baggage,Delete Baggage Fee,Delete Baggage Fee,Airline manager,Remove outdated baggage fee options,Passengers only see current fee structures,"1. Manager navigates to baggage fee management
+2. Manager selects fee category to delete
+3. Manager clicks ""Delete"" button
+4. System confirms deletion
+5. Manager confirms action
+6. System removes the fee option"
+Baggage,Search Baggage Fees,Search Baggage Fees,User,Check baggage fees for my flight,I can plan my luggage accordingly,"1. User selects flight or enters flight details
+2. User navigates to baggage information section
+3. System displays applicable fees
+4. User can select additional baggage if needed"
+Code Generation,Generate Barcode,Generate Barcode,Ticket holder,Generate a barcode for my ticket,I can use it for check-in and boarding,"1. User navigates to e-ticket section
+2. System generates and displays barcode
+3. User can download or print the barcode"
+Code Generation,Generate QR,Generate QR Code,Ticket holder,Generate a QR code for my ticket,I can use it for quick check-in on my mobile device,"1. User navigates to mobile boarding pass section
+2. System generates QR code with ticket information
+3. User saves QR code to mobile wallet"
+Meal,Add Meal,Add Meal Option,Airline manager,Add meal options for flights,Passengers can select their preferred meals,"1. Manager navigates to meal management page
+2. Manager clicks ""Add Meal"" button
+3. Manager enters meal details
+4. Manager assigns meal to flight categories
+5. Manager submits the form
+6. System saves the new meal option"
+Meal,Edit Meal,Edit Meal,Airline manager,Update meal options,Meal information and pricing stay current,"1. Manager navigates to meal management page
+2. Manager selects meal to edit
+3. Manager clicks ""Edit"" button
+4. System displays editable information
+5. Manager updates details
+6. Manager clicks ""Save"" button
+7. System updates meal information"
+Meal,Delete Meal,Delete Meal,Airline manager,Remove meal options no longer offered,Passengers only see available choices,"1. Manager navigates to meal management page
+2. Manager selects meal to delete
+3. Manager clicks ""Delete"" button
+4. System checks for dependencies
+5. System displays confirmation prompt
+6. Manager confirms deletion
+7. System removes meal from options"
+Meal,Search Meal,Search Meal,User,Find meal options for my flight,I can make informed choices about in-flight dining,"1. User selects flight
+2. User navigates to meal options
+3. System displays available meals
+4. User can view details and make selections"
+Messaging,Send Message,Send Messages Between Users,User,Send messages to another user,We can coordinate travel plans,"1. User navigates to messaging section
+2. User searches for recipient
+3. User composes and sends message
+4. Recipient receives notification"
+Payment,Make Payment,Make Payment,User,Pay for my flight booking,My reservation is confirmed,"1. User reviews booking and proceeds to checkout
+2. User selects payment method
+3. User enters payment details
+4. System processes payment
+5. System confirms payment and finalizes booking"
+Pricing,View Pricing Rules,View Airline Pricing Rules,User,See pricing policies of different airlines,I understand fare differences and restrictions,"1. User navigates to airline information page
+2. User selects ""Pricing Rules"" tab
+3. System displays fare classes and policies"
+Pricing,Update Prices,Update Ticket Prices,Airline manager,Update ticket prices,They reflect current market conditions and demand,"1. Manager navigates to pricing management page
+2. Manager selects routes to update
+3. Manager enters new pricing information
+4. Manager submits changes
+5. System updates prices for new bookings"
+Pricing,Delete Pricing Rule,Delete Pricing Rule,Airline manager,Remove outdated pricing rules,Only current pricing policies are enforced,"1. Manager navigates to pricing management
+2. Manager selects rule to delete
+3. Manager clicks ""Delete"" button
+4. System confirms deletion
+5. Manager confirms action
+6. System removes the pricing rule"
+Review,Add Review,Add Review,Passenger,Submit a review after my flight,Other users can benefit from my experience,"1. User receives post-flight email or navigates to review section
+2. User selects flight to review
+3. User provides ratings and comments
+4. User submits the review
+5. System moderates and publishes the review"
+Review,Update Review,Update Review,User,Edit my submitted review,I can update my feedback or correct mistakes,"1. User navigates to ""My Reviews"" section
+2. User selects review to edit
+3. User clicks ""Edit"" button
+4. System displays editable content
+5. User updates ratings or comments
+6. User submits updated review
+7. System saves changes"
+Review,Delete Review,Delete Review,User,Remove my review,My feedback is no longer public,"1. User navigates to ""My Reviews"" section
+2. User selects review to delete
+3. User clicks ""Delete"" button
+4. System confirms deletion request
+5. User confirms action
+6. System removes the review"
+Review,View Reviews,View Reviews,User,Read reviews of airlines and flights,I can make informed booking decisions,"1. User navigates to airline/flight details page
+2. User selects ""Reviews"" tab
+3. System displays all approved reviews
+4. User can filter or sort reviews"
+Review,Search Reviews,Search Reviews,User,Find specific reviews,I can see feedback relevant to my interests,"1. User navigates to reviews section
+2. User enters search criteria
+3. System displays matching reviews
+4. User can read detailed reviews"
+Statistics,Daily Stats,View Daily Statistics,Administrator,See daily booking statistics,I can monitor system activity and business performance,"1. Admin navigates to statistics dashboard
+2. Admin selects ""Daily View""
+3. System displays key metrics for selected day
+4. Admin can drill down into specific data"
+Statistics,Weekly Stats,View Weekly Statistics,Business analyst,View weekly booking patterns,I can identify trends and peak periods,"1. Analyst navigates to statistics dashboard
+2. Analyst selects ""Weekly Report""
+3. System displays weekly data and comparisons
+4. Analyst can export data if needed"
+Statistics,Monthly Stats,View Monthly Statistics,Business analyst,Analyze monthly booking trends,I can prepare business reports and forecasts,"1. Analyst logs into analytics dashboard
+2. Analyst selects ""Monthly Report""
+3. System generates monthly statistics
+4. Analyst can export data in various formats"
+Voucher,Add Voucher,Create Voucher,Marketing manager,Create promotional vouchers,We can attract more customers with discounts,"1. Manager navigates to voucher management page
+2. Manager clicks ""Create Voucher"" button
+3. Manager enters voucher details
+4. Manager submits the form
+5. System generates and activates the voucher"
+Voucher,Edit Voucher,Edit Voucher,Marketing manager,Update voucher details,Promotional offers remain accurate and valid,"1. Manager navigates to voucher management
+2. Manager selects voucher to edit
+3. Manager clicks ""Edit"" button
+4. System displays editable information
+5. Manager updates details
+6. Manager clicks ""Save"" button
+7. System updates voucher information"
+Voucher,Delete Voucher,Delete Voucher,Marketing manager,Deactivate or delete vouchers,Expired promotions are no longer usable,"1. Manager navigates to voucher management
+2. Manager selects voucher to delete
+3. Manager clicks ""Delete"" button
+4. System confirms action
+5. Manager confirms deletion
+6. System updates voucher status"
+Voucher,Apply Voucher,Apply Voucher,User,Apply a voucher code to my booking,I can get a discount,"1. User proceeds to payment page
+2. User enters voucher code
+3. User clicks ""Apply"" button
+4. System validates voucher and applies discount
+5. System displays updated total"

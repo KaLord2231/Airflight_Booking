@@ -1,0 +1,31 @@
+@startuml
+title Edit Voucher
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db 
+
+u -> ctrl: Voucher.show(code, amount, image, expireDate)
+activate ctrl
+ctrl --> u: editVoucherForm.show(code, amount, image, expireDate)
+deactivate ctrl
+u-> ctrl: Voucher.edit(code, amount, image, expireDate)
+activate ctrl
+ctrl -> ctrl: Validate changing data
+alt Input valid
+    ctrl -> sv: editVoucher(changing info)
+    activate sv
+    sv -> db: Query to edit Voucher (changing info)
+    activate db
+    db --> sv: return success message
+    deactivate db
+    sv --> ctrl: return Voucher
+    deactivate sv
+    ctrl --> u: Show success message
+    ctrl-->u: Show(VoucherScreen)
+else Input invalid
+    ctrl --> u: Show error message
+    ctrl-->u: Show(VoucherScreen)
+end
+
+@enduml

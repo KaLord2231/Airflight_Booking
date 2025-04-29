@@ -1,0 +1,20 @@
+@startuml
+title Search Review
+actor User as u
+participant Controller as ctrl
+participant Service as sv
+database Database as db
+
+u -> ctrl: Request to search Review (keyword)
+activate ctrl
+ctrl->sv: Search(keyword)
+activate sv
+sv->db: Query to show list Review by Keyword
+activate db
+db->sv: Return list Review ()
+deactivate db
+sv-->ctrl: listReview()
+deactivate sv
+ctrl->u:listReview.show()
+deactivate ctrl
+@enduml

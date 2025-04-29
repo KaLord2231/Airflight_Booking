@@ -1,24 +1,24 @@
 @startuml
-title Add Flight
+title Add Voucher
 actor User as u
 participant Controller as ctrl
 participant Service as sv
 database Database as db 
 
-u -> ctrl: Request to add Flight ()
+u -> ctrl: Request to add Voucher \n(code, amount, image, expireDate)
 activate ctrl
 ctrl -> ctrl: Validate input data
 alt Input valid
-    ctrl -> sv: createFlight()
+    ctrl -> sv: createVoucher(code, amount, image, expireDate)
     activate sv
-    sv -> db: Query to insert Flight ()
+    sv -> db: Query to insert Voucher\n(code, amount, image, expireDate)
     activate db
     db --> sv: return success message
     deactivate db
-    sv --> ctrl: Flight()
+    sv --> ctrl: Voucher(code, amount, image, expireDate)
     deactivate sv
     ctrl --> u: Show success message
-    ctrl-->u: Show(Flight)
+    ctrl-->u: Show(Voucher)
 else Input invalid
     ctrl --> u: Show error message
     deactivate ctrl
